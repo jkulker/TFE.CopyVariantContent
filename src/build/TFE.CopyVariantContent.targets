@@ -1,0 +1,21 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <TFECopyVariantContentContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\TFE.CopyVariantContent\**\*.*</TFECopyVariantContentContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyTFECopyVariantContentAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <TFECopyVariantContentContentFiles Include="$(TFECopyVariantContentContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying TFE.CopyVariantContent files: $(TFECopyVariantContentContentFilesPath) - #@(TFECopyVariantContentContentFiles->Count()) files" Importance="high" />
+        <Copy SourceFiles="@(TFECopyVariantContentContentFiles)" DestinationFiles="@(TFECopyVariantContentContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\TFE.CopyVariantContent\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+    
+    <Target Name="ClearTFECopyVariantContentAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <TFECopyVariantContentDir Include="$(MSBuildProjectDirectory)\App_Plugins\TFE.CopyVariantContent\" />
+        </ItemGroup>
+        <Message Text="Clear old TFE.CopyVariantContent data" Importance="high" />
+        <RemoveDir Directories="@(TFECopyVariantContentDir)" />
+    </Target>
+</Project>

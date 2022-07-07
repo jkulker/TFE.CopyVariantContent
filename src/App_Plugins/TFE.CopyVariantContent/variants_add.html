@@ -1,0 +1,48 @@
+﻿<div class="umb-dialog umb-pane" ng-controller="TFE.Translating">
+    <div class="umb-dialog-body">
+        <div ng-hide="success">
+            <p class="umb">
+                <localize key="dialog_confirmationMessage">
+                    Are you sure you want to add content(
+                    <strong>{{currentNode.name}}</strong>)
+                </localize>
+                <localize key="dialog_confirmationMessage2">
+                    to all variants?
+                </localize>
+            </p>
+            <button role="checkbox" aria-checked="{{includeChilderen}}" ng-click="includeChilderenClick()" type="button" class="umb-toggle" ng-class="{'umb-toggle--checked': includeChilderen}">
+                <div class="umb-toggle__toggle">
+                    <umb-icon ng-show="hideIcons !== 'true'" icon="icon-check" class="umb-toggle__icon umb-toggle__icon--left"></umb-icon>
+                    <umb-icon ng-show="hideIcons !== 'true'" icon="icon-wrong" class="umb-toggle__icon umb-toggle__icon--right"></umb-icon>
+                    <div class="umb-toggle__handler"></div>
+                </div>
+                <span>
+                    <span class="umb-toggle__label umb-toggle__label--right"><localize key="dialog_includeChildItemsLabel">Include all items below</localize></span>
+                </span>
+            </button>
+            <br />
+            <button type="button" class="btn btn-link" ng-click="closeDialog()">
+                <localize key="dialog_cancel">Cancel</localize>
+            </button>
+            <button ng-hide="busy" type="button" class="btn btn-primary" ng-click="createVariants(currentNode.id)">
+                <localize key="dialog_buttonCreateLabel">Create content for all Variants</localize>
+            </button>
+            <div ng-if="busy" style="position: relative;">
+                <umb-loader />
+            </div>
+        </div>
+            <div ng-show="error">
+                <div class="alert alert-error">
+                    <div><strong><localize key="dialog_errorTitle">Error</localize></strong></div>
+                    <div>test</div>
+                </div>
+            </div>
+            <div ng-show="success">
+                <div class="alert alert-success">
+                    <strong>{{currentNode.name}}</strong>
+                    <span><localize key="dialog_succesMessage">variants created</localize></span>
+                </div>
+                <button class="btn btn-primary" ng-click="closeDialog()"><localize key="dialog_ok">Ok</localize></button>
+            </div>
+        </div>
+    </div>

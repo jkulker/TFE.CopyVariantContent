@@ -1,0 +1,8 @@
+﻿{
+    "name": "TFE.Umbraco.CopyVariantContent",
+    "version": "0.0.1",
+    "allowPackageTelemetry": true,
+    "javascript": [
+        "~/App_Plugins/TFE.CopyVariantContent/variants.controller.js"
+    ]
+}
