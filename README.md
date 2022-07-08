@@ -11,8 +11,7 @@ This package is supported on Umbraco 10.
 PM> Install-Package TFE.CopyVariantContent
 ```
 
-2.
-    Rebuild project
+2. Rebuild project
 
 # Features
 
@@ -20,4 +19,4 @@ PM> Install-Package TFE.CopyVariantContent
 * Possible to include children in the process
 
 # Demo
-
+![demo pacakge TFE.CopyVariantContent](https://github.com/jkulker/TFE.CopyVariantContent/blob/main/demo.gif "Demo")
