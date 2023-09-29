@@ -4,10 +4,11 @@
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>TFE.CopyVariantContent</Product>
     <PackageId>TFE.CopyVariantContent</PackageId>
-	  <Version>0.0.1</Version>
+	  <Version>1.1.0</Version>
     <Title>TFE.CopyVariantContent</Title>
-    <Description>...</Description>
-    <PackageTags>umbraco plugin package</PackageTags>
+    <Description>CopyVariantTool is an extension for Umbraco to copy content from an item to another language variant</Description>
+    <PackageTags>umbraco plugin package, umbraco-marketplace, umbraco</PackageTags>
+    <PackageProjectUrl>https://github.com/jkulker/TFE.CopyVariantContent</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
