@@ -1,0 +1,32 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AuthorDetails": {
+    "Name": "Julien Kulker",
+    "Description": "A software engineer who has been working with Umbraco for years. Working at: theFactor.e part of 4NG",
+    "Url": "https://github.com/jkulker/TFE.CopyVariantContent/",
+    "ImageUrl": "https://avatars.githubusercontent.com/u/38132206?v=4",
+    "Contributors": [],
+    "SyncContributorsFromRepository": false
+  },
+  "Category": "Editor Tools",
+  "Description": "CopyVariantTool is an extension for Umbraco to copy content from an item to another language variant",
+  "DocumentationUrl": "https://github.com/jkulker/TFE.CopyVariantContent/blob/main/README.md",
+  "IssueTrackerUrl": "https://github.com/jkulker/TFE.CopyVariantContent/issues",
+  "LicenseTypes": [ "Free" ],
+  "PackageType": "Package",
+  "PackagesByAuthor": [],
+  "RelatedPackages": [],
+  "Screenshots": [
+    {
+      "ImageUrl": "https://github.com/jkulker/TFE.CopyVariantContent/blob/main/demo.gif",
+      "Caption": "A small demo to show how the extension works"
+    }
+  ],
+  "Tags": [
+    "backoffice",
+    "languages",
+    "variants",
+    "language variants"
+  ],
+  "Title": "CopyVariantTool"
+}
