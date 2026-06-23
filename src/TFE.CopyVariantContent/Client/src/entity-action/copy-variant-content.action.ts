@@ -65,7 +65,16 @@ export class CopyVariantContentEntityAction extends UmbEntityActionBase<never> {
     const workspaceContext = await this.getContext(UMB_DOCUMENT_WORKSPACE_CONTEXT).catch(
       () => undefined,
     );
-    await workspaceContext?.reload();
+    const workspaceUnique = workspaceContext?.getUnique?.();
+    if (workspaceUnique === this.args.unique) {
+      await workspaceContext?.reload();
+    } else {
+      // Triggered from the tree drawer with no (or a different) document open in
+      // the workspace; the variant selector for the targeted document can't be
+      // reloaded in place, so refresh the page to pick up the new variants.
+      window.location.reload();
+      return;
+    }
 
     const eventContext = await this.getContext(UMB_ACTION_EVENT_CONTEXT).catch(() => undefined);
     eventContext?.dispatchEvent(

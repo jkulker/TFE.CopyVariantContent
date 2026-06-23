@@ -7,7 +7,7 @@ const o = [
     alias: "Tfe.EntityAction.CopyVariantContent",
     name: "Copy Variant Content Entity Action",
     weight: 100,
-    api: () => import("./copy-variant-content.action-Cc_O8x2d.js"),
+    api: () => import("./copy-variant-content.action-CcuEllAS.js"),
     forEntityTypes: [a],
     meta: {
       icon: "icon-globe",
@@ -36,4 +36,4 @@ export {
   m as C,
   p as m
 };
-//# sourceMappingURL=bundle.manifests-CHvn06P7.js.map
+//# sourceMappingURL=bundle.manifests-DGvsXSQp.js.map

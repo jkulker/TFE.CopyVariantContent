@@ -1,12 +1,12 @@
-import { UmbEntityActionBase as s, UmbRequestReloadStructureForEntityEvent as c, UmbRequestReloadChildrenOfEntityEvent as u } from "@umbraco-cms/backoffice/entity-action";
-import { UMB_AUTH_CONTEXT as d } from "@umbraco-cms/backoffice/auth";
-import { umbOpenModal as C } from "@umbraco-cms/backoffice/modal";
-import { UMB_NOTIFICATION_CONTEXT as p } from "@umbraco-cms/backoffice/notification";
-import { UMB_ACTION_EVENT_CONTEXT as h } from "@umbraco-cms/backoffice/action";
+import { UmbEntityActionBase as c, UmbRequestReloadStructureForEntityEvent as u, UmbRequestReloadChildrenOfEntityEvent as d } from "@umbraco-cms/backoffice/entity-action";
+import { UMB_AUTH_CONTEXT as C } from "@umbraco-cms/backoffice/auth";
+import { umbOpenModal as p } from "@umbraco-cms/backoffice/modal";
+import { UMB_NOTIFICATION_CONTEXT as h } from "@umbraco-cms/backoffice/notification";
+import { UMB_ACTION_EVENT_CONTEXT as l } from "@umbraco-cms/backoffice/action";
 import { UMB_DOCUMENT_WORKSPACE_CONTEXT as T } from "@umbraco-cms/backoffice/document";
-import { C as m } from "./bundle.manifests-CHvn06P7.js";
+import { C as m } from "./bundle.manifests-DGvsXSQp.js";
 const y = "/umbraco/copyvariantcontent/api/v1/create-variants";
-async function l(n, e, a) {
+async function f(n, e, a) {
   try {
     const t = await fetch(y, {
       method: "POST",
@@ -22,25 +22,25 @@ async function l(n, e, a) {
     return { error: t };
   }
 }
-class N extends s {
+class N extends c {
   constructor(e, a) {
     super(e, a);
   }
   async execute() {
     if (!this.args.unique)
       return;
-    const e = await C(this, m).catch(() => {
+    const e = await p(this, m).catch(() => {
     });
     if (!e)
       return;
-    const a = await this.getContext(p), t = await this.getContext(d);
+    const a = await this.getContext(h), t = await this.getContext(C);
     if (!t) {
       a?.peek("danger", {
         data: { headline: "Copy variants", message: "Not authenticated." }
       });
       return;
     }
-    const i = await t.getLatestToken(), r = await l(i, this.args.unique, e.includeChildren);
+    const i = await t.getLatestToken(), r = await f(i, this.args.unique, e.includeChildren);
     if (r.error) {
       a?.peek("danger", {
         data: {
@@ -55,19 +55,26 @@ class N extends s {
         headline: "Copy variants",
         message: `Created ${r.variantsCreated ?? 0} variant(s).`
       }
-    }), await (await this.getContext(T).catch(
+    });
+    const o = await this.getContext(T).catch(
       () => {
       }
-    ))?.reload();
-    const o = await this.getContext(h).catch(() => {
+    );
+    if (o?.getUnique?.() === this.args.unique)
+      await o?.reload();
+    else {
+      window.location.reload();
+      return;
+    }
+    const s = await this.getContext(l).catch(() => {
     });
-    o?.dispatchEvent(
-      new c({
+    s?.dispatchEvent(
+      new u({
         unique: this.args.unique,
         entityType: this.args.entityType
       })
-    ), e.includeChildren && o?.dispatchEvent(
-      new u({
+    ), e.includeChildren && s?.dispatchEvent(
+      new d({
         unique: this.args.unique,
         entityType: this.args.entityType
       })
@@ -78,4 +85,4 @@ export {
   N as CopyVariantContentEntityAction,
   N as default
 };
-//# sourceMappingURL=copy-variant-content.action-Cc_O8x2d.js.map
+//# sourceMappingURL=copy-variant-content.action-CcuEllAS.js.map
