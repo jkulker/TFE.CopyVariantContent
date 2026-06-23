@@ -72,8 +72,7 @@ unauthenticated calls rejected with 401, multi-language and descendant copying, 
 
 ## Run / test against an Umbraco 17 site
 
-There is no Umbraco 17 site to host this yet (`dev-pressalit` is still on v13). To click through it
-locally, reference it from any v17 site, for example a throwaway one:
+To click through it locally, reference it from any v17 site, for example a throwaway one:
 
 ```sh
 dotnet new install Umbraco.Templates@17.*
@@ -85,14 +84,3 @@ dotnet run --project CopyVariantTestSite
 Build the client first so `wwwroot/App_Plugins/CopyVariantContent` exists; the project reference
 copies the static assets into the host. Create a culture-varying document type with a couple of
 languages to exercise it.
-
-## Moving into dev-pressalit (after its v13 -> v17 upgrade)
-
-1. Copy this folder into the `dev-pressalit` repo (e.g. under `src/`).
-2. Add it to `pres-umbraco.sln` and reference it from the Umbraco web project.
-3. Commit the built `wwwroot/App_Plugins/CopyVariantContent` assets so Umbraco Cloud deploys them.
-
-## Upstream pull request (later)
-
-This is a clean reimplementation, not a patch on the original tree. When ready to contribute back,
-fork `jkulker/TFE.CopyVariantContent`, port these files onto a branch there, and open the PR.
