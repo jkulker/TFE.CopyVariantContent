@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TFE.CopyVariantContent/TFE.CopyVariantContent.csproj" />
+  <Project Path="TFE.CopyVariantContent.Tests/TFE.CopyVariantContent.Tests.csproj" />
+</Solution>

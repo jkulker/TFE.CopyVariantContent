@@ -5,7 +5,13 @@
     "Description": "A software engineer who has been working with Umbraco for years. Working at: theFactor.e part of 4NG",
     "Url": "https://github.com/jkulker/TFE.CopyVariantContent/",
     "ImageUrl": "https://avatars.githubusercontent.com/u/38132206?v=4",
-    "Contributors": [],
+    "Contributors": [
+      {
+        "Name": "Asbjørn Bach",
+        "Url": "https://github.com/acbach",
+        "ImageUrl": "https://avatars.githubusercontent.com/acbach"
+      }
+    ],
     "SyncContributorsFromRepository": false
   },
   "Category": "Editor Tools",

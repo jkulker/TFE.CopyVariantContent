@@ -1,0 +1,14 @@
+{
+  "id": "TFE.CopyVariantContent",
+  "name": "TFE.CopyVariantContent",
+  "version": "2.0.0",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "Copy Variant Content Bundle",
+      "alias": "TFE.CopyVariantContent.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/CopyVariantContent/copy-variant-content.js"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>TFE.CopyVariantContent</PackageId>
+    <Product>TFE.CopyVariantContent</Product>
+    <Title>TFE.CopyVariantContent</Title>
+    <Description>Create language variants from existing content. Ported to Umbraco 17.</Description>
+    <Version>2.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Api.Common" Version="17.4.2" />
+    <PackageReference Include="Umbraco.Cms.Api.Management" Version="17.4.2" />
+
+    <!--
+      Swashbuckle is available transitively from the Umbraco packages above, but we take a direct
+      dependency here because the composer uses Swashbuckle types (SwaggerGenOptions) and
+      Microsoft.OpenApi (OpenApiInfo) directly. A direct reference keeps the version aligned with
+      the host so the custom Swagger document is generated reliably.
+    -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="17.4.2" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="17.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The Client folder is a dev-time TypeScript project, not part of the NuGet package. -->
+    <Content Remove="Client\**" />
+    <None Include="Client\public\umbraco-package.json" Pack="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>
